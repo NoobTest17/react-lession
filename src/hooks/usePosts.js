@@ -14,7 +14,7 @@ export const useSortedPosts = (posts, sort) => {
 export const usePosts = (posts, sort, query) => {
   const sortedPosts = useSortedPosts(posts, sort)
   const sortedAndSearchedPosts = useMemo(() => {
-    return sortedAndSearchedPosts.filter(post => post.title.toLowerCase().includes(query.toLowerCase()))
+    return sortedPosts.filter(post => post.title.toLowerCase().includes(query.toLowerCase()))
   }, [query, sortedPosts])
 
   return sortedAndSearchedPosts;
